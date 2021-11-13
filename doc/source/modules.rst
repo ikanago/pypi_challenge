@@ -1,7 +1,7 @@
-project_name
+pypi_challenge
 ============
 
 .. toctree::
    :maxdepth: 4
 
-   project_name
+   pypi_challenge
