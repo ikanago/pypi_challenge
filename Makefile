@@ -1,7 +1,7 @@
 PYSEN := poetry run pysen
 PYTEST := poetry run pytest
 SPHINX_APIDOC := poetry run sphinx-apidoc
-PROJECT_DIR := project_name
+PROJECT_DIR := pypi_challenge
 PORT := 8000
 
 # Idiom found at https://www.gnu.org/software/make/manual/html_node/Force-Targets.html

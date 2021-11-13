@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.abspath("../.."))
 
 # -- Project information -----------------------------------------------------
 
-project = "project_name"
+project = "pypi_challenge"
 copyright = "2021, Qulacs-Osaka"
 author = "Qulacs-Osaka"
 
@@ -53,7 +53,7 @@ exclude_patterns = ["**.ipynb_checkpoints"]
 html_theme = "sphinx_book_theme"
 
 html_theme_options = {
-    "repository_url": f"https://github.com/{author}/python-project-template",
+    "repository_url": f"https://github.com/{author}/pypi_challenge",
     "repository_branch": "main",
     "use_repository_button": True,
     "path_to_docs": "doc/source",
