@@ -30,6 +30,11 @@ jobs:
         python-version: ["3.9"]
     needs: static-analysis
     runs-on: ${{ matrix.os }}
+    env:
+      PYTHON: ${{ matrix.python-version }}
+      CIBW_BUILD: "cp3*-manylinux_x86_64"
+      CIBW_SKIP: "cp310-manylinux_x86_64"
+      CIBW_BUILD_VERBOSITY: "1"
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
