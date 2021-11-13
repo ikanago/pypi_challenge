@@ -46,11 +46,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install setuptools cibuildwheel twine
 
-      - name: Run cibuildwheel
-        run: python -m cibuildwheel --output-dir wheels
+      - name: Build wheel
+        run: python setup.py bdist_wheel
 
       - name: Upload wheel data
-        run: python -m twine upload wheels/*.whl
+        run: python -m twine upload dist/*.whl
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.TWINE_TOKEN }}
