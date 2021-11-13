@@ -22,3 +22,30 @@ jobs:
           python -m pip install --upgrade pip
           pip install setuptools
           pip install -e .
+
+  wheel-build:
+    strategy:
+      matrix:
+        os: ["ubuntu-latest"]
+        python-version: ["3.9"]
+    needs: static-analysis
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install setuptools cibuildwheel twine
+
+      - name: Run cibuildwheel
+        run: python -m cibuildwheel --output-dir wheels
+
+      - name: Upload wheel data
+        run: python -m twine upload wheels/*.whl
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.TWINE_TOKEN }}
